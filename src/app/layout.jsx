@@ -1,9 +1,9 @@
-"use client"
+// "use client"
 import './globals.css'
 // import { Inter } from 'next/font/google'
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from "react";
-import { userContext } from '@/context/user';
+// import { useRouter } from 'next/navigation';
+// import { useEffect, useState } from "react";
+// import { userContext } from '@/context/user';
 
 export const metadata = {
   title: 'Web 2 Print',
