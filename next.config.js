@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'reqres.in',
 
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+
+      },
     ],
   },
 }

@@ -11,51 +11,49 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const [userData, setUserData] = useState({});
-  const router = useRouter();
-  const logout = function () {
-    setUserData({});
-    localStorage.removeItem('apiauth')
-    router.replace('/');
-  }
-  useEffect(() => {
-    const data = localStorage.getItem('apiauth');
-      if (data == null) {
-        router.replace('/')
-        // Swal.fire('You need to login before')
+  // const [userData, setUserData] = useState({});
+  // const router = useRouter();
+  // const logout = function () {
+  //   setUserData({});
+  //   localStorage.removeItem('apiauth')
+  //   router.replace('/');
+  // }
+  // useEffect(() => {
+  //   const data = localStorage.getItem('apiauth');
+  //     if (data == null) {
+  //       router.replace('/')
+  //       // Swal.fire('You need to login before')
 
-      } else {
-        const obj = JSON.parse(data);
-        if (!["concierge", "admin", "admon", "sales", "operations", "manager"].includes(obj.user.role)) {
-          router.replace('/')
-        }
+  //     } else {
+  //       const obj = JSON.parse(data);
+  //       if (!["concierge", "admin", "admon", "sales", "operations", "manager"].includes(obj.user.role)) {
+  //         router.replace('/')
+  //       }
       
-    }
-  }, [router])
-  useEffect(()=> {
-    try {
-      const data = localStorage.getItem('apiauth');
-      if (data != null) {
-        const obj = JSON.parse(data);
-        setUserData(obj)
-      }
-    } catch (error) {
-      console.log(err);
-    }
-  },[])
+  //   }
+  // }, [router])
+  // useEffect(()=> {
+  //   try {
+  //     const data = localStorage.getItem('apiauth');
+  //     if (data != null) {
+  //       const obj = JSON.parse(data);
+  //       setUserData(obj)
+  //     }
+  //   } catch (error) {
+  //     console.log(err);
+  //   }
+  // },[])
 
-  
-
-  const contextUserValue = {
-    userData,
-    setUserData: setUserData,
-    logout: logout,
-  }
+  // const contextUserValue = {
+  //   userData,
+  //   setUserData: setUserData,
+  //   logout: logout,
+  // }
   return (
     <html lang="es">
-      <userContext.Provider value={contextUserValue}>
+      {/* <userContext.Provider value={contextUserValue}> */}
         <body className='min-h-screen'>{children}</body>
-      </userContext.Provider>
+      {/* </userContext.Provider> */}
     </html>
   )
 }

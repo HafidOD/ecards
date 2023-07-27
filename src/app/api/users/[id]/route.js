@@ -3,41 +3,37 @@ import { prisma } from '@/libs/db';
 
 export async function GET(request, {params}) {
   // console.log(request); ;
-  const enterprise = await prisma.enterprise.findUnique({
+  const user = await prisma.user.findUnique({
     where: {
       id: parseInt(params.id),
-    }, 
-    include: {
-      addresses: true,
-      users: true,
-    }
+    },
   })
-  return NextResponse.json({ enterprise }, 
+  return NextResponse.json({ user }, 
     { status: 200 })
 }
 
 export async function PUT (request, {params}) {
-  const enterprise = await prisma.enterprise.update({
+  // cosnt updateData = await re
+  const user = await prisma.user.update({
     where: {
       id: parseInt(params.id),
     },
     data: await request.json(),
     include: {
-      users: true,
-      addresses: true,
+      enterprises: true,
     }
   })
-  return NextResponse.json({ enterprise }, {status: 200});
+  return NextResponse.json({ user }, {status: 200});
 }
 
 export async function DELETE (request, {params}) {
-  const deleteEnterprise = await prisma.enterprise.delete({
+  const deleteUser = await prisma.user.delete({
     where: {
       id: parseInt(params.id),
     },
   })
   return NextResponse.json({ 
-    message: 'Enterprise deleted',
-    enterprise: deleteEnterprise }, 
+    message: 'User deleted',
+    enterprise: deleteUser }, 
     { status: 200 })
 }

@@ -5,7 +5,8 @@ export async function fetchEnterprises() {
 
   const res = await fetch('http://localhost:3000/api/enterprises');
   const data = await res.json();
-  return data.data;
+  // console.log(data.enterprises);
+  return data.enterprises;
 }
 export default async function DashboardPage() {
   const enterprises = await fetchEnterprises();
