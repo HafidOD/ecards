@@ -1,4 +1,3 @@
-import AddressCard from "@/components/AddressCard";
 import ProductCheckout from "@/components/ProductCheckout";
 
 const products = [

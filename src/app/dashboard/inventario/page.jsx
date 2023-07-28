@@ -3,7 +3,7 @@ import { PrinterIcon, TruckIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 export async function fetchProducts () {
-  const res = await fetch('http://localhost:3000/api/products');
+  const res = await fetch(process.env.URL_BASE+'/api/products');
   const data = await res.json();
 
   return data.products;

@@ -1,10 +1,9 @@
 
 import Categories from "@/components/Categories";
-import Enterpises from "@/components/Enterpises";
 
 export async function fetchCategories() {
 
-  const res = await fetch('http://localhost:3000/api/categories');
+  const res = await fetch(process.env.URL_BASE+'/api/categories');
   const data = await res.json();
   // console.log(data.enterprises);
   return data.categories;

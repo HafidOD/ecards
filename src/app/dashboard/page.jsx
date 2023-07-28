@@ -2,8 +2,8 @@
 import Enterpises from "@/components/Enterpises";
 
 export async function fetchEnterprises() {
-
-  const res = await fetch('http://localhost:3000/api/enterprises');
+const URL_BASE = process.env.URL_BASE +'/api/enterprises';
+  const res = await fetch(URL_BASE);
   const data = await res.json();
   // console.log(data.enterprises);
   return data.enterprises;
