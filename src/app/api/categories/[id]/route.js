@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/libs/db';
+import { data } from 'autoprefixer';
 
 export async function GET(request, {params}) {
   // console.log(request); ;
@@ -13,6 +14,17 @@ export async function GET(request, {params}) {
   })
   return NextResponse.json({ category }, 
     { status: 200 })
+}
+
+export async function PUT (request, {params}) {
+  const category = await prisma.category.update({
+    where: {
+      id: parseInt(params.id),
+    },
+    data: await request.json(),
+  })
+
+  return NextResponse.json({ category }, { status: 200 });
 }
 
 export async function DELETE (request, {params}) {

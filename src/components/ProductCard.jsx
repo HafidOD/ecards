@@ -27,7 +27,7 @@ export default function ProductCard({ products }) {
       {/* <p>enterprise id = { enterprise }</p> */}
       {products.map((product) => {
         return (
-          <div key={product.id} className="w-full p-2 rounded-lg shadow-xl lg:flex lg:max-w-lg m-3">
+          <div key={product.id} className="w-full p-2 rounded-lg shadow-xl lg:flex lg:max-w-lg m-3 bg-white">
             <img
               className="object-cover w-40 h-40"
               src="https://cdn.pixabay.com/photo/2022/08/18/09/20/houses-7394390__340.jpg"

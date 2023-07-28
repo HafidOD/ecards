@@ -1,12 +1,16 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { Disclosure, Menu } from "@headlessui/react";
-import { Bars3Icon, ArrowRightOnRectangleIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { ShoppingCartIcon } from "@heroicons/react/24/solid";
+import {
+  Bars3Icon,
+  ArrowRightOnRectangleIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import IconCart from "./IconCart";
 
 const navigation = [
-  { name: "Panel", href: "/dashboard"},
-  { name: "Cuentas", href: "#"},
+  { name: "Panel", href: "/dashboard" },
   { name: "Pedidos", href: "/dashboard/pedidos" },
 ];
 
@@ -24,9 +28,11 @@ export default function Example() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only"><Menu></Menu></span>
+                  <span className="sr-only">
+                    <Menu></Menu>
+                  </span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true"/>
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
@@ -34,14 +40,16 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Image
-                    className=""
-                    src="/images/logos/logo_regio_white.png"
-                    alt="Logo Grupo Regio"
-                    width={135}
-                    height={37}
-                    priority
-                  />
+                  <Link href="/dashboard/">
+                    <Image
+                      className=""
+                      src="/images/logos/logo_regio_white.png"
+                      alt="Logo Grupo Regio"
+                      width={125}
+                      height={37}
+                      priority
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -65,30 +73,31 @@ export default function Example() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <a
-                  href="#"
+                  href="dashboard/checkout"
                   type="button"
                   className="rounded-full p-1 text-white focus:outline-none"
-                >  
-                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                >
+                  <IconCart></IconCart>
                 </a>
-                <div className="relative ml-3">
+                {/* <div className="relative ml-3">
                       <img
                         className="h-8 w-8 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       ></img>
+                </div> */}
+                <div className="relative ml-3 flex justify-center">
+                  <a
+                    href="/"
+                    type="button"
+                    className="rounded-full bg-white p-1 text-black hover:text-blue-600 focus:outline-none"
+                  >
+                    <ArrowRightOnRectangleIcon
+                      className="h-5 w-5"
+                      aria-hidden="true"
+                    />
+                  </a>
                 </div>
-                <div className="relative ml-3">
-                <a
-                  href="#"
-                  type="button"
-                  className="rounded-full bg-white p-1 text-black hover:text-blue-600 focus:outline-none"
-                >  
-                  <ArrowRightOnRectangleIcon className="h-6 w-6" aria-hidden="true" />
-                </a>
-                </div>
-                
-                
               </div>
             </div>
           </div>

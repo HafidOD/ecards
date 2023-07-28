@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       {/* <userContext.Provider value={contextUserValue}> */}
-        <body className='min-h-screen'>{children}</body>
+        <body className='min-h-screen bg-slate-100'>{children}</body>
       {/* </userContext.Provider> */}
     </html>
   )

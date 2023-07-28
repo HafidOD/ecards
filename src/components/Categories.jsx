@@ -12,12 +12,13 @@ export default function Categories({ categories }) {
         return (
           <Link
             href="/dashboard/inventario"
+            className="w-full"
             key={category.id}
           >
             
-            <div className="w-full rounded-lg shadow-md lg:max-w-sm">
+            <div className="w-full rounded-lg shadow-md lg:max-w-sm bg-white">
               <img
-                className="object-cover w-full h-48"
+                className="object-contain w-full h-48"
                 src={category.imageCategory}
                 alt={category.categoryName}
               />

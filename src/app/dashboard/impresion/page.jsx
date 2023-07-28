@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function ImpresionPage() {
   let [categories] = useState({
     "Tarjetas de Presentación": [
       {
