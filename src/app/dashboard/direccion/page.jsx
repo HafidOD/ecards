@@ -1,7 +1,7 @@
 import AddressCard from "@/components/AddressCard";
 
 export async function fetchAddresses () {
-  const res = await fetch('/api/addresses');
+  const res = await fetch(process.env.HOST+'/api/addresses');
   const data = await res.json();
 
   return data.addresses;
