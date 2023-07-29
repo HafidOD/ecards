@@ -3,7 +3,7 @@ import Categories from "@/components/Categories";
 
 export async function fetchCategories() {
 
-  const res = await fetch(process.env.URL_BASE+'/api/categories');
+  const res = await fetch('/api/categories');
   const data = await res.json();
   // console.log(data.enterprises);
   return data.categories;
