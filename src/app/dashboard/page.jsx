@@ -65,7 +65,7 @@ const enterprises = [
   {
     "id": 3,
     "enterpriseName": "Marriott",
-    "logo": "/images/enterprises/logos/mh.jpg",
+    "logo": "/images/enterprises/logos/marriott.jpg",
     "createdAt": "2023-07-27T21:48:15.821Z",
     "updatedAt": "2023-07-27T21:48:15.821Z",
     "addresses": [
