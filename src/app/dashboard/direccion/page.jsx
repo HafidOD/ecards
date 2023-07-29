@@ -1,14 +1,34 @@
 import AddressCard from "@/components/AddressCard";
 
-export async function fetchAddresses () {
-  const res = await fetch(process.env.HOST+'/api/addresses');
-  const data = await res.json();
+// export async function fetchAddresses () {
+//   const res = await fetch('/api/addresses');
+//   const data = await res.json();
 
-  return data.addresses;
-}
-
+//   return data.addresses;
+// }
+const addresses = [
+  {
+    "id": 1,
+    "officeName": "City Express Junior Aguascalientes Centro",
+    "address": "Av. Ayuntamiento 102, Obraje.",
+    "city": "Aguascalientes",
+    "country": "México",
+    "state": "Aguascalientes",
+    "postalCode": 20230,
+    "enterpriseId": 2,
+    "createdAt": "2023-07-27T21:48:27.329Z",
+    "updatedAt": "2023-07-27T21:48:27.329Z",
+    "enterprise": {
+      "id": 2,
+      "enterpriseName": "City Express",
+      "logo": "/images/enterprises/logos/city-express.jpg",
+      "createdAt": "2023-07-27T21:48:10.129Z",
+      "updatedAt": "2023-07-27T21:48:10.129Z"
+    }
+  }
+]
 export default async function AddressPage() {
-  const addresses = await fetchAddresses();
+  // const addresses = await fetchAddresses();
   // console.log(addresses);
   return (
     <div className="w-full md:w-2/5 px-2 m-auto py-5 space-y-5 sm:px-0">

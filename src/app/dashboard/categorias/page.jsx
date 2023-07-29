@@ -1,15 +1,32 @@
 
 import Categories from "@/components/Categories";
 
-export async function fetchCategories() {
+const categories = [
+  {
+    "id": 1,
+    "categoryName": "Stationery",
+    "imageCategory": "/images/logos/gruporegio_isotipo.png",
+    "createdAt": "2023-07-27T21:46:56.595Z",
+    "updatedAt": "2023-07-27T21:46:56.595Z"
+  },
+  {
+    "id": 2,
+    "categoryName": "F&B",
+    "imageCategory": "/images/logos/gruporegio_isotipo.png",
+    "createdAt": "2023-07-27T21:47:18.492Z",
+    "updatedAt": "2023-07-28T21:58:43.051Z"
+  }
+]
 
-  const res = await fetch(process.env.HOST+'/api/categories');
-  const data = await res.json();
-  // console.log(data.enterprises);
-  return data.categories;
-}
+// export async function fetchCategories() {
+
+//   const res = await fetch('/api/categories');
+//   const data = await res.json();
+//   // console.log(data.enterprises);
+//   return data.categories;
+// }
 export default async function CategoriesPage() {
-  const categories = await fetchCategories();
+  // const categories = await fetchCategories();
   // console.log(categories);
   return (
     <div className="w-3/5 px-2 m-auto py-16 sm:px-0">
