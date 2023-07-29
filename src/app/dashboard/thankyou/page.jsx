@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 export default function ThankyouPage() {
@@ -10,13 +11,13 @@ export default function ThankyouPage() {
           </svg>
           <h1 class="text-4xl font-bold text-center">¡Gracias por tu solicitud!</h1>
           <p className="text-center">Te enviaremos una confirmación por correo electrónico en breve.</p>
-          <a href="/dashboard"
+          <Link href="/dashboard"
             class="inline-flex items-center px-4 py-2 text-white bg-blue-700 border border-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:ring">
             <ArrowLeftIcon className="h-4 w-4 mr-2" aria-hidden="true" />
             <span class="text-md font-medium">
               Inicio
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

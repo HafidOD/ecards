@@ -11,8 +11,8 @@ import Link from "next/link";
 const products = [
   {
     "id": 1,
-    "nameProduct": "Advance Check-In Card_ESLA",
-    "imageProduct": "https://cdn.pixabay.com/photo/2022/08/18/09/20/houses-7394390__340.jpg",
+    "nameProduct": "GM Note Card Envelope",
+    "imageProduct": "/images/products/gm_note_card_envelope.png",
     "priceLocal": 110,
     "priceNacional": 116.6,
     "priceExt": 5.79,
@@ -42,8 +42,8 @@ const products = [
   },
   {
     "id": 2,
-    "nameProduct": "Member Non Member Key Packet_ESLA_STAN_R2-2",
-    "imageProduct": "https://cdn.pixabay.com/photo/2022/08/18/09/20/houses-7394390__340.jpg",
+    "nameProduct": "Coaster",
+    "imageProduct": "/images/products/coaster.png",
     "priceLocal": 114,
     "priceNacional": 121,
     "priceExt": 6,
@@ -78,20 +78,20 @@ export default async function pageInventarios() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div>
+      <div className="w-full md:w-2/5 px-2 m-auto py-5 space-y-5 sm:px-0">
         <div className="space-y-4">
           <h3 className="text-xl font-medium text-center text-blue-700">
             Selecciona los productos
           </h3>
 
           <ProductCard products={ products }></ProductCard>
-          <div className="flex justify-center p-4">
-            <a
+          <div className="flex justify-center">
+            <Link
               href="/dashboard/checkout"
               className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Ver Carrito
-            </a>
+            </Link>
           </div>
         </div>
       </div>

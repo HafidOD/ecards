@@ -11,14 +11,14 @@ import IconCart from "./IconCart";
 
 const navigation = [
   { name: "Panel", href: "/dashboard" },
-  { name: "Pedidos", href: "/dashboard/pedidos" },
+  { name: "Historial", href: "/dashboard/pedidos" },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Navbar() {
   return (
     <Disclosure as="nav" className="bg-blue-700">
       {({ open }) => (
@@ -27,7 +27,7 @@ export default function Example() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white focus:outline-none">
                   <span className="sr-only">
                     <Menu></Menu>
                   </span>
@@ -54,7 +54,7 @@ export default function Example() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -66,19 +66,13 @@ export default function Example() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <a
-                  href="dashboard/checkout"
-                  type="button"
-                  className="rounded-full p-1 text-white focus:outline-none"
-                >
                   <IconCart></IconCart>
-                </a>
                 {/* <div className="relative ml-3">
                       <img
                         className="h-8 w-8 rounded-full"
@@ -87,20 +81,22 @@ export default function Example() {
                       ></img>
                 </div> */}
                 <div className="relative ml-3 flex justify-center">
-                  <a
+                  <Link
                     href="/"
                     type="button"
-                    className="rounded-full bg-white p-1 text-black hover:text-blue-600 focus:outline-none"
+                    className="rounded-full bg-white p-1 text-blue-700 focus:outline-none"
                   >
                     <ArrowRightOnRectangleIcon
-                      className="h-5 w-5"
+                      className="h-6 w-6"
                       aria-hidden="true"
                     />
-                  </a>
+                  </Link>
                 </div>
+                
               </div>
             </div>
           </div>
+          
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
