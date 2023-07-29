@@ -45,7 +45,7 @@ export default function ProductCard({ products }) {
         height={40}
       /> */}
             <div className="pl-4 flex flex-col justify-evenly">
-              <h4 className="text-sm md:text-lg font-semibold tracking-tight text-blue-600 mb-2">
+              <h4 className="text-sm md:text-lg font-semibold leading-tight text-blue-600 mb-2">
                 {product.nameProduct}
               </h4>
               <div>

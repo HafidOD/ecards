@@ -4,7 +4,7 @@ import Link from "next/link";
 const products = [
   {
     "id": 1,
-    "nameProduct": "Advance Check-In Card_ESLA",
+    "nameProduct": "GM Note Card Envelope",
     "imageProduct": "/images/products/gm_note_card_envelope.png",
     "priceLocal": 110,
     "priceNacional": 116.6,
@@ -35,7 +35,7 @@ const products = [
   },
   {
     "id": 2,
-    "nameProduct": "Member Non Member Key Packet_ESLA_STAN_R2-2",
+    "nameProduct": "Coaster",
     "imageProduct": "/images/products/coaster.png",
     "priceLocal": 114,
     "priceNacional": 121,

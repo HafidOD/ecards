@@ -10,7 +10,7 @@ export default function ProductCheckout({ products }) {
           <div className="flex items-center gap-x-4">
           <img className="object-contain h-12 w-12 flex-none rounded-full" src={product.imageProduct} alt={product.nameProduct} />
             <div className="min-w-0 flex-auto">
-              <p className="text-xs md:text-sm font-semibold leading-6 text-gray-900">{product.nameProduct}</p>
+              <p className="text-xs md:text-sm font-semibold leading-6 text-gray-900 leading-tight">{product.nameProduct}</p>
               <p className="mt-1 truncate text-xs leading-5 text-gray-500">${product.priceLocal} MXN</p>
             </div>
           </div>
