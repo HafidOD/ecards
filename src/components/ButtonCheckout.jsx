@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
-export default function ButtonCheckout() {
-  const [counter, setCounter] = useState(0);
+export default function ButtonCheckout({ quantity }) {
+  const [counter, setCounter] = useState(quantity);
   const plusCounter = () => {
     setCounter(counter + 1);
   };
@@ -15,9 +15,6 @@ export default function ButtonCheckout() {
     } else {
       setCounter(0);
     }
-  };
-  const addToCard = () => {
-    alert(`Se ha agregado al carrito ${counter}`);
   };
 
   return (
@@ -47,5 +44,5 @@ export default function ButtonCheckout() {
         </button>
       </div>
     </div>
-  )
+  );
 }

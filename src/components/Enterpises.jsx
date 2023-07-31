@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState } from "react";
 
 export const enterpriseContext = createContext();
 
 export default function Enterpises({ enterprises }) {
-
   const [enterprise, setEnterpise] = useState(null);
 
   return (
@@ -16,12 +15,11 @@ export default function Enterpises({ enterprises }) {
       {enterprises.map((enterprise) => {
         return (
           <Link
-            href="/dashboard/menu"
+            href={"/dashboard/" + enterprise.id}
             className="w-full"
             key={enterprise.id}
             onClick={() => setEnterpise(enterprise.id)}
           >
-            
             <div className="w-full rounded-lg shadow-lg lg:max-w-sm bg-white">
               <img
                 className="object-contain w-full h-48"

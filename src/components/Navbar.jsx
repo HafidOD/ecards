@@ -18,7 +18,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({ params }) {
+  // console.log(params);
   return (
     <Disclosure as="nav" className="bg-blue-700">
       {({ open }) => (
@@ -72,7 +73,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <IconCart></IconCart>
+                <IconCart params={params}></IconCart>
                 {/* <div className="relative ml-3">
                       <img
                         className="h-8 w-8 rounded-full"
@@ -92,11 +93,9 @@ export default function Navbar() {
                     />
                   </Link>
                 </div>
-                
               </div>
             </div>
           </div>
-          
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">

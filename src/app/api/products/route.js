@@ -1,37 +1,53 @@
-import { NextResponse } from 'next/server'
-import { prisma } from '@/libs/db';
- 
+import { NextResponse } from "next/server";
+import prisma from "@/libs/db";
+
 export async function GET(request) {
-  const products = await prisma.product.findMany({
-    include: {
-      enterprise: true,
-      categories: true,
-    }
-  });
-  return NextResponse.json({ products: products },{status: 200})
+  try {
+    const products = await prisma.product.findMany({
+      include: {
+        enterprise: true,
+        categories: true,
+      },
+    });
+    return NextResponse.json({ products: products }, { status: 200 });
+  } catch (error) {
+    return new NextResponse(
+      { message: "Internal Error", error },
+      { status: 500 }
+    );
+  }
 }
 
-export async function POST (request) {
+export async function POST(request) {
+  try {
+    const { categories, ...newProduct } = await request.json();
 
-  const { nameProduct, imageProduct, priceLocal, priceNacional, priceExt, descriptionProduct, stockProduct, unitsPackage, published, enterpriseId} = await request.json();
-  const product = await prisma.product.create({
-    data: {
-      nameProduct,
-      imageProduct,
-      priceLocal,
-      priceNacional,
-      priceExt,
-      descriptionProduct,
-      stockProduct, 
-      unitsPackage, 
-      published, 
-      enterpriseId,
-      categories: {
-        connect: [
-          {id: 1}
-        ]
-      }
-    },
-  })
-  return NextResponse.json({ product }, {status: 200})
+    const connect = categories.reduce((arr, item) => {
+      arr.push({ id: item });
+      return arr;
+    }, []);
+    const product = await prisma.product.create({
+      data: {
+        nameProduct: newProduct.nameProduct,
+        imageProduct: newProduct.imageProduct,
+        priceLocal: newProduct.priceLocal,
+        priceNacional: newProduct.priceNacional,
+        priceExt: newProduct.priceExt,
+        descriptionProduct: newProduct.descriptionProduct,
+        stockProduct: newProduct.stockProduct,
+        unitsPackage: newProduct.unitsPackage,
+        published: newProduct.published,
+        enterpriseId: newProduct.enterpriseId,
+        categories: {
+          connect: connect,
+        },
+      },
+    });
+    return NextResponse.json({ product }, { status: 200 });
+  } catch (error) {
+    return new NextResponse(
+      { message: "Internal Error", error },
+      { status: 500 }
+    );
+  }
 }

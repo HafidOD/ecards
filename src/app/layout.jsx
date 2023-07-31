@@ -1,14 +1,16 @@
 // "use client"
-import './globals.css'
+import ToastProvider from "@/providers/toast-providers";
+
 // import { Inter } from 'next/font/google'
 // import { useRouter } from 'next/navigation';
 // import { useEffect, useState } from "react";
 // import { userContext } from '@/context/user';
 
+import "./globals.css";
 export const metadata = {
-  title: 'Web 2 Print',
-  description: 'HOD',
-}
+  title: "Web 2 Print",
+  description: "HOD",
+};
 
 export default function RootLayout({ children }) {
   // const [userData, setUserData] = useState({});
@@ -29,7 +31,7 @@ export default function RootLayout({ children }) {
   //       if (!["concierge", "admin", "admon", "sales", "operations", "manager"].includes(obj.user.role)) {
   //         router.replace('/')
   //       }
-      
+
   //   }
   // }, [router])
   // useEffect(()=> {
@@ -52,8 +54,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       {/* <userContext.Provider value={contextUserValue}> */}
-        <body className='min-h-screen bg-slate-100'>{children}</body>
+      <body className="min-h-screen bg-slate-100">
+        <ToastProvider />
+        {children}
+      </body>
       {/* </userContext.Provider> */}
     </html>
-  )
+  );
 }

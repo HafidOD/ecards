@@ -48,7 +48,7 @@ CREATE TABLE `Product` (
     `priceNacional` DOUBLE NULL,
     `priceExt` DOUBLE NULL,
     `descriptionProduct` VARCHAR(191) NULL,
-    `stockProduct` INTEGER NOT NULL,
+    `stockProduct` INTEGER NULL,
     `unitsPackage` INTEGER NOT NULL,
     `published` BOOLEAN NOT NULL DEFAULT false,
     `enterpriseId` INTEGER NOT NULL,
@@ -62,6 +62,7 @@ CREATE TABLE `Product` (
 CREATE TABLE `Category` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `categoryName` VARCHAR(191) NOT NULL,
+    `imageCategory` VARCHAR(191) NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -73,6 +74,7 @@ CREATE TABLE `Sale` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `userId` INTEGER NOT NULL,
     `totalSale` DOUBLE NOT NULL,
+    `enterpriseInt` INTEGER NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -106,11 +108,23 @@ CREATE TABLE `_CategoryToProduct` (
     INDEX `_CategoryToProduct_B_index`(`B`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- CreateTable
+CREATE TABLE `_CategoryToEnterprise` (
+    `A` INTEGER NOT NULL,
+    `B` INTEGER NOT NULL,
+
+    UNIQUE INDEX `_CategoryToEnterprise_AB_unique`(`A`, `B`),
+    INDEX `_CategoryToEnterprise_B_index`(`B`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- AddForeignKey
 ALTER TABLE `Address` ADD CONSTRAINT `Address_enterpriseId_fkey` FOREIGN KEY (`enterpriseId`) REFERENCES `Enterprise`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Product` ADD CONSTRAINT `Product_enterpriseId_fkey` FOREIGN KEY (`enterpriseId`) REFERENCES `Enterprise`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Sale` ADD CONSTRAINT `Sale_enterpriseInt_fkey` FOREIGN KEY (`enterpriseInt`) REFERENCES `Enterprise`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Sale` ADD CONSTRAINT `Sale_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -132,3 +146,9 @@ ALTER TABLE `_CategoryToProduct` ADD CONSTRAINT `_CategoryToProduct_A_fkey` FORE
 
 -- AddForeignKey
 ALTER TABLE `_CategoryToProduct` ADD CONSTRAINT `_CategoryToProduct_B_fkey` FOREIGN KEY (`B`) REFERENCES `Product`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `_CategoryToEnterprise` ADD CONSTRAINT `_CategoryToEnterprise_A_fkey` FOREIGN KEY (`A`) REFERENCES `Category`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `_CategoryToEnterprise` ADD CONSTRAINT `_CategoryToEnterprise_B_fkey` FOREIGN KEY (`B`) REFERENCES `Enterprise`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
