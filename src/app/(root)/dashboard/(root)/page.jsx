@@ -10,8 +10,8 @@ export async function fetchUser(id) {
 }
 
 export default async function DashboardPage() {
-  const user = await fetchUser(1);
-  // console.log(user);
+  const user = await fetchUser(10);
+  console.log(user);
   return (
     <div className="w-3/5 px-2 m-auto py-16 sm:px-0">
       <Enterpises enterprises={user.data.enterprises}></Enterpises>
