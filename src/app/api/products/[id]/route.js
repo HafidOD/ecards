@@ -13,7 +13,7 @@ export async function GET(request, { params }) {
     });
     return NextResponse.json({ product }, { status: 200 });
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );
@@ -35,7 +35,7 @@ export async function DELETE(request, { params }) {
       { status: 200 }
     );
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );

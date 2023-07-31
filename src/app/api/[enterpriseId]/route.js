@@ -11,17 +11,9 @@ export async function GET(request, { params }) {
     });
     return NextResponse.json({ data: enterprise }, { status: 200 });
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );
   }
 }
-
-// export async function POST(request) {
-//   const { ...newEnterprise } = await request.json();
-//   const enterprise = await prisma.enterprise.create({
-//     data: newEnterprise,
-//   });
-//   return NextResponse.json({ enterprise }, { status: 200 });
-// }

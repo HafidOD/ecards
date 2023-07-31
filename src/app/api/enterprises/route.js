@@ -13,7 +13,7 @@ export async function GET(request) {
     });
     return NextResponse.json({ enterprises }, { status: 200 });
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );
@@ -28,7 +28,7 @@ export async function POST(request) {
     });
     return NextResponse.json({ enterprise }, { status: 200 });
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );

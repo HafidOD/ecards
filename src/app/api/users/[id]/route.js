@@ -14,7 +14,7 @@ export async function GET(request, { params }) {
     });
     return NextResponse.json({ data: user }, { status: 200 });
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );
@@ -35,7 +35,7 @@ export async function PUT(request, { params }) {
     });
     return NextResponse.json({ user }, { status: 200 });
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );
@@ -57,7 +57,7 @@ export async function DELETE(request, { params }) {
       { status: 200 }
     );
   } catch (error) {
-    return new NextResponse(
+    return NextResponse.json(
       { message: "Internal Error", error },
       { status: 500 }
     );
